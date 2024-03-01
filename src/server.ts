@@ -2,10 +2,10 @@ import express, { Application } from "express"
 import dotenv from "dotenv"
 dotenv.config()
 import { AppDataSource } from "./models/db"
-import { createRole } from "./domain/roles/router"
-import { createUser, getSingleUser, getUsers, login } from "./domain/users/router"
-import { auth } from "./middlewheres/auth"
-import { isSuperAdmin } from "./middlewheres/isSuperAdmin"
+import roleRouter from "./domain/roles/router"
+import authRouter from "./domain/auth/router"
+import userRouter from "./domain/users/router"
+
 
 export const app: Application = express()
 
@@ -17,13 +17,15 @@ app.get("/hello", (req, res) => {
 
 const PORT = process.env.PORT || 4001
 
-app.post("/roles", createRole)
+//rutas de roles
+app.use('/api', roleRouter);
 
-//rutas de users
-app.post("/register", createUser)
-app.get("/user",auth, isSuperAdmin, getUsers)
-app.get("/user/:id", getSingleUser)
-app.post("/login", login)
+//rutas de auth
+app.use('/api', authRouter);
+
+//rutas de user
+app.use('/api', userRouter);
+
 
 AppDataSource.initialize()
   .then(() => {

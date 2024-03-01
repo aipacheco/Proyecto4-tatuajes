@@ -2,33 +2,31 @@ import { NextFunction, Request, Response } from "express"
 import jwt from "jsonwebtoken"
 import { TokenData } from "../types"
 
-export const auth = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.headers.authorization?.split(" ")[1]
+export const auth = async (req: Request, res: Response, next: NextFunction) => {
 
-  if (!token) {
-    res.status(401).json({
-      success: false,
-      message: "UNAUTHORIZED",
-    })
-    return
-  }
 
   try {
-    const decoded = jwt.verify(token, "secreto") as TokenData
+    const token = req.headers.authorization?.split(" ")[1]
+    console.log(token)
 
-    // Modify request object to include payload
-    req.tokenData = {
-      userId: decoded.userId,
-      userRole: decoded.userRole,
+    if (!token) {
+      return res.status(401).json({
+        success: false,
+        message: "UNAUTHORIZED",
+      })
     }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string)
+
+
+    req.tokenData = decoded as TokenData
 
     next()
   } catch (error) {
-    res.status(401).json({
+    return res.status(500).json({
       success: false,
-      error: "Unauthorized",
-      message: "Invalid or malformed JWT token",
+      message: "JWT NOT VALID OR MALFORMED",
+      error: error,
     })
-    return
   }
 }
