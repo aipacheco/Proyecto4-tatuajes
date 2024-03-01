@@ -14,9 +14,9 @@ export const createRole = async (name: string) => {
     }).save()
     return undefined
 
-
-  } else {
     //si existe lo retornamos para tratarlo en el controller
+  } else {
+    // console.log("el rol existe",findRole)
     return findRole
   }
 }
