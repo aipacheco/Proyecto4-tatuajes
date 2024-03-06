@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import * as Repository from "./repository"
 import bcrypt from "bcrypt"
 import Jwt from "jsonwebtoken"
-import { isValidEmail, isValidPassword, validator } from "../../Helpers/helpers"
+import { isValidEmail, isValidPassword, validator } from "../../../helpers/helpers"
 
 export const register = async (req: Request, res: Response) => {
 

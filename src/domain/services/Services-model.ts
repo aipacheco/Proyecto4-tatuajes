@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm"
-import { Appointments } from "./Appointments"
+import { Appointments } from "../appointments/Appointments-model"
 
 @Entity("services")
 export class Services extends BaseEntity {

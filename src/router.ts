@@ -1,6 +1,6 @@
 import  {  Router } from "express"
 import appointmentRouter from "./domain/appointments/router"
-import authRouter from "./domain/auth/router"
+import authRouter from "./domain/users/auth/router"
 import roleRouter from "./domain/roles/router"
 import serviceRouter from "./domain/services/router"
 import userRouter from "./domain/users/router"

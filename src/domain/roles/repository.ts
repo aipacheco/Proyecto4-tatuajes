@@ -1,5 +1,5 @@
 //se importa la tabla para hacer la inserción en DB
-import { Roles } from "../../models/Roles"
+import { Roles } from "./Roles-model"
 
 export const createRole = async (name: string) => {
   //se chequea que no exista un registro igual

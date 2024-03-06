@@ -1,4 +1,4 @@
-import { Services } from "../../models/Services"
+import { Services } from "./Services-model"
 
 export const getServices = async () => {
   const services = await Services.find({

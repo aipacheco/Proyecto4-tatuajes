@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import * as Repository from "./repository"
-import { isValidLongText, validator } from "../../Helpers/helpers"
+import { isValidLongText, validator } from "../../helpers/helpers"
 
 export const getServices = async (req: Request, res: Response) => {
   try {

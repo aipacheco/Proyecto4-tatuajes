@@ -1,4 +1,4 @@
-import { Users } from "../../models/Users"
+import { Users } from "../Users-model"
 
 export const register = async (user: any) => {
   const email: string = user.email

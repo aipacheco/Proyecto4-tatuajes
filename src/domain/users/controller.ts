@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import * as Repository from "./repository"
-import { isArrayEmpty, isValidPassword, validator } from "../../Helpers/helpers"
+import { isArrayEmpty, isValidPassword, validator } from "../../helpers/helpers"
 
 
 export const getUsers = async (req: Request, res: Response) => {

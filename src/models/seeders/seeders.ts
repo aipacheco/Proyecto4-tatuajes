@@ -1,10 +1,10 @@
 import { faker } from "@faker-js/faker"
-import { Roles } from "../Roles"
-import { Users } from "../Users"
-import { Services } from "../Services"
+import { Roles } from "../../domain/roles/Roles-model"
+import { Users } from "../../domain/users/Users-model"
+import { Services } from "../../domain/services/Services-model"
 import { AppDataSource } from "../db"
 import bcrypt from "bcrypt"
-import { Appointments } from "../Appointments"
+import { Appointments } from "../../domain/appointments/Appointments-model"
 
 // Función para generar usuarios falsos con Faker
 const generateFakeUser = () => {

@@ -7,8 +7,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm"
-import { Roles } from "./Roles"
-import { Appointments } from "./Appointments"
+import { Roles } from "../roles/Roles-model"
+import { Appointments } from "../appointments/Appointments-model"
 
 @Entity("users")
 export class Users extends BaseEntity {

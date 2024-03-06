@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm"
-import { Users } from "../models/Users"
+import { Users } from "../users/Users-model"
 @Entity("roles")
 export class Roles extends BaseEntity {
   @PrimaryGeneratedColumn()

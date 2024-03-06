@@ -1,7 +1,7 @@
 import { Request } from "express"
-import { Appointments } from "../../models/Appointments"
-import { Users } from "../../models/Users"
-import { Services } from "../../models/Services"
+import { Appointments } from "./Appointments-model"
+import { Users } from "../users/Users-model"
+import { Services } from "../services/Services-model"
 
 export const getMyAppointments = async (req: Request) => {
   const user = await Users.findOneBy({ id: req.tokenData.userId })
